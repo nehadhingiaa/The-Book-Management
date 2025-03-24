@@ -3,12 +3,9 @@ import {createSlice } from "@reduxjs/toolkit";
 import { fetchBooksForHome } from "./BookApi";
 
 
-
-
-
 export const homeBooksSlice =createSlice({
-    name:"books",
-    initialState:{books:[],loading:false,error:null},
+    name:"homeBooks",
+    initialState:{homeBooks:[],loading:false,error:null},
     reducers:{
       
     },
@@ -20,7 +17,7 @@ export const homeBooksSlice =createSlice({
           })
         .addCase(fetchBooksForHome.fulfilled,(state,action)=>{
             state.loading =false;
-            state.books =action.payload
+            state.homeBooks =action.payload
         })
         .addCase(fetchBooksForHome.rejected,(state,action)=>{
             state.loading=false;

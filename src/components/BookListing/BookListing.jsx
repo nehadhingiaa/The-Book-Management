@@ -1,24 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooksForHome } from './BookApi';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooksForHome } from "./BookApi";
 
 // import booklogo from '../../assets/images/booklogo.jpg'
 
+const BookListing = () => {
+  const dispatch = useDispatch();
+  const { homeBooks } = useSelector((state) => state?.homeBooks);
 
+  useEffect(() => {
+    dispatch(fetchBooksForHome());
+  }, [dispatch]);
 
-const BookListing = ({books}) => {
-  const dispatch=useDispatch();
-  const {homeBooks}=useSelector((books)=>books?.homeBooks)
-  
-  useEffect(()=>{
-    dispatch(fetchBooksForHome())
-  },[dispatch])
-  
-
+  console.log(homeBooks, "homeBooks");
 
   // If there are no books, show a message
-  if (books.length === 0) return <div>No books available.</div>;
 
   return (
     <div className="book-list px-4 sm:px-10 md:px-20 py-10 bg-purple-100">
@@ -26,7 +23,7 @@ const BookListing = ({books}) => {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
         style={{ marginBottom: "50px" }}
       >
-        {homeBooks?.map((book) => (
+        {homeBooks?.length > 0 && homeBooks?.map((book) => (
           <div
             key={book.id}
             className="book-card cols-span-1 h-auto bg-purple-50 border-2 border-purple-300 rounded shadow-xl p-5"

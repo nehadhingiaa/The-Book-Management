@@ -29,7 +29,9 @@ export const store =configureStore({
         user:authReducer,
         books:bookListingReducer,
         shops:shopReducer,
-        cartData:cartDataSlice,
+        cartData:persistedReducer,
+        // cartData:cartDataSlice,
+
         // user:fetchUserSlice,
         productDetails:productDetailsSlice,
         buyerCartItems:buyerCartSliceReducer,

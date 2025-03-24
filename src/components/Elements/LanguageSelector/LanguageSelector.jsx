@@ -29,10 +29,12 @@ const LanguageSelector = () => {
     <select
       value={selectedLang}
       onChange={(e) => handleLanguage(e.target.value)}
-      className="w-full px-4 py-2 text-gray-700 bg-white border border-purple-400 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 appearance-none"
+      className="w-full px-4 py-1 text-gray-700 bg-white border border-purple-400 rounded-lg shadow-md 
+      focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 appearance-none
+      hover:bg-purple-100 cursor-pointer"
     >
       {languages.map((lng) => (
-        <option key={lng.code} value={lng.code}>
+        <option key={lng.code} value={lng.code} className='hover:bg-purple-300'>
           {lng.lang}
         </option>
       ))}

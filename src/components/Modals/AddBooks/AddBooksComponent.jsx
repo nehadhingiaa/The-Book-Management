@@ -1,20 +1,22 @@
 import { useFormik } from 'formik'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import InputField from '../../Elements/InputField/Inputfield'
 import TextAreaField from '../../Elements/TextArea/TextArea'
 import { useDispatch, useSelector } from 'react-redux'
-import { createBooks, fetchBooks, updateBooks } from '../../BookListing/BookApi'
+import { createBooks, updateBooks } from '../../BookListing/BookApi'
+import Swal from 'sweetalert2'
+import { useTranslation } from 'react-i18next'
 
 // import SweetAlert from '../../Elements/SweetAlert/SweetAlertForSuccess'
 
 
 const AddBooksComponent = ({bookId,closeModal}) => {
+  const {t}=useTranslation()
   const [initialValues, setInitialValues] = useState({
     title: '',
     author: '',
-    description: '',
     stockCount: '',
-    quantity: '',
+    quantity: 1,
     price: '',
     image: null
   },);
@@ -41,40 +43,61 @@ const AddBooksComponent = ({bookId,closeModal}) => {
     initialValues,
     onSubmit:async(values)=>{
      
-     
+    
       if(bookId){
         try{
           dispatch(updateBooks({...values,id:bookId}));
-          // dispatch(fetchBooks()); 
-        // <SweetAlert text={"Book has been updated successfully"}/>
+          
         }
         catch(error){
         <SweetAlert text={error}/>
         }
       }
+
       else{
         try{
-          await dispatch(createBooks(values));
-        // <SweetAlert text={"Book has been added successfully"}/>
+          await dispatch(createBooks(values));  // <SweetAlert text={"Book has been added successfully"}/>
+          Swal.fire({
+            title: "Book Has Been Added Successfully",
+            icon: "success",
+            confirmButtonText: 'OK',
+            // Ensure timer is not set here
+            timerProgressBar: true,
+            draggable: true,
+            // Optional: You can log when the modal closes (on user click)
+            willClose: () => {
+              console.log('Order placed and alert closed');
+            }
+          });
         }
-        catch(error)
+        catch
         {
-        <SweetAlert text={error}/>
+          Swal.fire({
+            title: "Please check,something went wrong",
+            icon: "error",
+            confirmButtonText: 'OK',
+            // Ensure timer is not set here
+            timerProgressBar: true,
+            draggable: true,
+            // Optional: You can log when the modal closes (on user click)
+            willClose: () => {
+              console.log('Order placed and alert closed');
+            }
+          });
         }
       }
         
     }
   })
+
+  const convertToBase64 = (file, callback) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => callback(reader.result); // Base64 string
+    reader.onerror = (error) => console.error("Error converting file: ", error);
+  };
   
-  const handleImageChange = (event) => {
-    const file = event.target.files[0]; // Get the selected file
-    if (file) {
-        setFieldValue("image", file); // Set the file in Formik state
-    }
-};
-
-
-
+ 
   return (
     
      <div className='fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 '>
@@ -82,7 +105,7 @@ const AddBooksComponent = ({bookId,closeModal}) => {
         
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
       <h2 className="text-4xl font-semibold text-purple-700 mb-4 text-center">
-      {bookId ? "Update Book" : "Add Book"}
+      {bookId ? t("updateBook") : t("addBook")}
       </h2>
 
       <div className="grid grid-cols-2 gap-4">
@@ -90,7 +113,7 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       <div>
      
       <InputField
-      label="Title"
+      label={t("bookTitle")}
       type="text"
       name="title"
       id="title"
@@ -104,7 +127,7 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       <div>
      
       <InputField
-      label="Author"
+      label={t("author")}
       type="text"
       name="author"
       id="author"
@@ -114,23 +137,11 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       />
       </div>
 
-      {/* Description */}
-      <div className="col-span-2">
       
-      <TextAreaField
-      label="Description"
-      name="description"
-      value={values.description}
-      onChange={handleChange}
-      placeholder="Enter Description"
-      rows="3"
-      />
-      </div>
-
       {/* Stock Count */}
       <div>
       <InputField
-      label="Stock Count"
+      label={t("stockCount")}
       type="number"
       name="stockCount"
       id="stockCount"
@@ -143,7 +154,7 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       {/* Price */}
       <div>
       <InputField
-      label="Price"
+      label={t("price")}
       type="number"
       name="price"
       id="price"
@@ -161,7 +172,12 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       name="image"
       id="image"
       accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-      onChange={handleImageChange}
+      onChange={(event) => {
+        const file = event.target.files[0];
+        convertToBase64(file, (base64) => {
+          setFieldValue("image", base64);  // Save Base64 in Formik state
+        });
+      }}
       className="w-full px-3 py-2 border border-purple-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
       />
       </div>
@@ -174,13 +190,16 @@ const AddBooksComponent = ({bookId,closeModal}) => {
       onClick={closeModal}
       className="bg-purple-500 text-white px-5 py-2 rounded-lg hover:bg-purple-600 transition"
       >
-      Cancel
+      {t("cancel")}
       </button>
       <button
       type="submit"
       className="bg-purple-700 text-white px-5 py-2 rounded-lg hover:bg-purple-800 transition"
       >
-      {bookId ? "Update Book" : "Add Book"}
+      {/* {t(bookId ? "updateBook" : "addBook")}
+       */}
+      {bookId ? t("updateBook") : t("addBook")}
+
       </button>
       </div>
       </form>

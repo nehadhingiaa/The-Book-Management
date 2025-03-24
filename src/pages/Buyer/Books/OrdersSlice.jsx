@@ -24,13 +24,16 @@ import { createSlice } from "@reduxjs/toolkit";
       },
       removeItem:(state,action)=>{
         state.cartData=state.cartData.filter((item)=>item?.id!== action.payload)
-      }
+      },
+      clearCart: (state) => {
+        state.cartData= [];  // ✅ This will clear the cart
+      },
       
     },
   });
   
 
-  export const {setData,removeItem,increaseQuantity,decreaseQuantity} =cartDataSlice.actions
+  export const {setData,removeItem,increaseQuantity,decreaseQuantity,clearCart} =cartDataSlice.actions
   export default cartDataSlice.reducer
 
   

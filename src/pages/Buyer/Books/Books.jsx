@@ -12,17 +12,20 @@ import Button from "../../../components/Elements/Button/Button";
 import InputField from "../../../components/Elements/InputField/Inputfield";
 import { setData } from "./OrdersSlice";
 import { setSearchQuery } from "../../../components/BookListing/BookSlice";
+import { useTranslation } from "react-i18next";
 
 // import { fetchShops } from './ShopSlice';
 
 const Books = () => {
+  const {t}=useTranslation()
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("");
   const { books } = useSelector((state) => state.books);
-  //  const [debouncedQuery, setDebouncedQuery] = useState("");
+
 
   const { cartData } = useSelector((state) => state.cartData);
+  console.log(cartData,"cartData")
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -46,68 +49,75 @@ const Books = () => {
 
   return (
     <>
-     <div className="p-5">
-     <div className="w-1/2 sm:w-1/2 flex justify-items-start">
-        <InputField
-          type="text"
-          placeholder="Search by book name..."
-          value={search}
-          onChange={handleSearchChange}
-          className=" p-3 border rounded-lg shadow-md text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-      </div>
+      <div className="min-h-screen p-5">
+        <h1 className="text-5xl font-semibold">{t("books")}</h1>
+        {/* Search Input */}
+        <div className="w-full sm:w-1/2 mb-6 top-0 mt-5">
+          <InputField
+            type="text"
+            placeholder="Search by book name..."
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full p-3 border rounded-lg shadow-md text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {books?.map((book) => (
-          <div
-            key={book.id}
-            className="book-card bg-white shadow-lg rounded-lg border border-purple-300 p-5 hover:scale-105 transition-transform duration-300 ease-in-out"
-          >
-            <div className="flex flex-col sm:flex-row gap-5">
-              <div className="w-full sm:w-56 min-h-full">
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-full object-cover rounded-lg shadow-md"
-                />
-              </div>
-              <div className="book-details mt-4 sm:mt-0 flex flex-col justify-between">
-                <h3 className="book-title text-gray-800 text-xl sm:text-2xl font-semibold leading-tight">
-                  <span className="text-black font-bold">Title:</span>{" "}
-                  {book.title}
-                </h3>
-                <span className="book-author text-gray-600 text-lg sm:text-xl font-medium">
-                  <span className="text-black font-bold">Author:</span>{" "}
-                  {book.author}
-                </span>
+        {/* Book Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-6">
+          {books?.map((book) => (
+            <div
+              key={book.id}
+              className="bg-white shadow-lg rounded-lg border border-purple-300 p-5 hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              <div className="flex flex-col sm:flex-row gap-5">
+                {/* Book Image */}
+                <div className="w-full sm:w-48   min-h-full">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="w-full h-auto object-cover rounded-lg shadow-md"
+                  />
+                </div>
 
-                <div className="mt-2 text-gray-700 text-md">
-                  <span>
-                    <span className="font-bold text-black">Stock Count: </span>
+                {/* Book Details */}
+                <div className="flex-1 mt-4 sm:mt-0">
+                  <h3 className="text-gray-800 text-xl sm:text-2xl md:text-3xl font-semibold mb-2">
+                    <span className="text-black font-bold">{t("bookTitle")}:</span>{" "}
+                    {book.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-lg sm:text-xl md:text-2xl font-medium mb-2">
+                    <span className="text-black font-bold">{t("author")}:</span>{" "}
+                    {book.author}
+                  </p>
+
+                  <div className="text-gray-700 text-md sm:text-lg md:text-xl mb-2">
+                    <span className="font-bold text-black">{t("stockCount")}: </span>
                     {book.stockCount}
-                  </span>
-                </div>
+                  </div>
 
-                <div className="flex items-center gap-1 mt-2 text-amber-400">
-                  <IoIosStar className="text-lg" />
-                  <IoIosStarHalf className="text-lg" />
-                  <MdOutlineStarBorderPurple500 className="text-lg" />
-                </div>
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mt-2 text-amber-400 mb-4">
+                    <IoIosStar className="text-lg sm:text-xl md:text-2xl" />
+                    <IoIosStarHalf className="text-lg sm:text-xl md:text-2xl" />
+                    <MdOutlineStarBorderPurple500 className="text-lg sm:text-xl md:text-2xl" />
+                  </div>
 
-                <div className="mt-4 flex justify-between items-center">
-                  <button
-                    className="text-white bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg shadow-md text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 ease-in-out"
-                    onClick={() => handleBooks(book)}
-                  >
-                    Add to Cart
-                  </button>
+                  {/* Add to Cart Button */}
+                  <div className="flex justify-between items-center mt-4">
+                    <Button
+                      className="w-full sm:w-48 md:w-56 text-white bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg shadow-md text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 ease-in-out"
+                      onClick={() => handleBooks(book)}
+                    >
+                      {t("addToCart")}
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-     </div>
     </>
   );
 };

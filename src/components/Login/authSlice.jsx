@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const API_URL = "http://localhost:8000/users";
 
@@ -25,6 +26,7 @@ export const loginUser = createAsyncThunk(
         console.log(response.data[0], "dsadasdsad");
         return response.data[0]; // Return user data if found
       } else {
+        toast.error("User does not exist! Please sign up.");
         return rejectWithValue("User does not exist! Please sign up.");
       }
     } catch (error) {

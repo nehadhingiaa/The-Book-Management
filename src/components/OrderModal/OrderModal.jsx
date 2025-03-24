@@ -2,8 +2,14 @@ import { useFormik } from 'formik'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import InputField from '../Elements/InputField/Inputfield'
+import Button from '../Elements/Button/Button'
 
-const OrderModal = ({ closeModal }) => {
+const initialValues={
+  name:'',
+  email:''
+}
+
+const ConfirmOrderModal = ({ closeModal,showModal }) => {
   const { t } = useTranslation();
   const {
     handleChange,
@@ -13,9 +19,19 @@ const OrderModal = ({ closeModal }) => {
     errors,
     touched,
     isSubmitting,
-  } = useFormik({});
+  } = useFormik({
+    initialValues:initialValues,
+    onSubmit:(values)=>{
+      console.log(values,"values")
+    }
+  });
+
+  const hanldeConfirmOrder=()=>{
+    
+    closeModal()
+  }
   return (
-    <div>
+    <div className='max-w-screen-lg min-h-screen-lg bg-purple-400'>
       <form
         className="mt-5  flex flex-col justify-center m-auto"
         onSubmit={handleSubmit}
@@ -23,13 +39,13 @@ const OrderModal = ({ closeModal }) => {
         {/* Name Input */}
         <div className="mb-4">
           <InputField
-            label={t("name")}
+            label="name"
             type="text"
             name="name"
             id="name"
             placeholder="enter your name"
             onChange={handleChange}
-            value={values.name}
+            value={values?.name}
             onBlur={handleBlur}
             autoComplete="off"
           />
@@ -47,7 +63,7 @@ const OrderModal = ({ closeModal }) => {
             id="email"
             placeholder="enter your name"
             onChange={handleChange}
-            value={values.email}
+            value={values?.email}
             onBlur={handleBlur}
             autoComplete="off"
           />
@@ -56,23 +72,11 @@ const OrderModal = ({ closeModal }) => {
           <p className="text-red-500 text-left">{errors.email}</p>
         ) : null}
 
-        <div className="mb-4">
-          <InputField
-            label={t("email")}
-            type="email"
-            name="email"
-            id="email"
-            placeholder="enter your name"
-            onChange={handleChange}
-            value={values.email}
-            onBlur={handleBlur}
-            autoComplete="off"
-          />
-        </div>
+       
 
         {/* Submit Button */}
         <div className="flex gap-3">
-          <Button disabled={isSubmitting}>Place Order</Button>
+          <Button disabled={isSubmitting} onClick={hanldeConfirmOrder}>Confirm Order</Button>
 
           <Button onClick={closeModal}>{t("cancel")}</Button>
         </div>
@@ -81,4 +85,4 @@ const OrderModal = ({ closeModal }) => {
   );
 };
 
-export default OrderModal;
+export default ConfirmOrderModal;

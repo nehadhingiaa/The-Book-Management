@@ -1,14 +1,17 @@
 import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
+
+
 const API_URL="http://localhost:8000/orders"
 
 export const placeOrder = createAsyncThunk(
+    
   'cart/updateCartData',
   async (orderItems,{rejectWithValue}) => {
-    // Replace the cart data with the selected cart data (this will set an empty or new cart)
    try{
     const response = await axios.post(API_URL, orderItems);
+    console.log(response.data,"placed order ")
     return response.data;
    }
    catch(error){

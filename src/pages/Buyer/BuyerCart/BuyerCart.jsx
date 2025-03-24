@@ -11,9 +11,10 @@ import {
 
 import PlaceOrder from "./PlaceOrder/PlaceOrderComponent";
 import { IoCart } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const BuyerCart = () => {
-  // const [showModal,setShowModal]=useState(false)
+  const {t}=useTranslation()
   const { cartData, loading } = useSelector((state) => state.cartData);
   const cartCount = cartData?.length;
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const BuyerCart = () => {
   const subQuantity = calculateSubQuantity();
 
   return (
-    <div className="grid grid-cols-12 gap-5 overflow-auto">
+    <div className="grid grid-cols-12 gap-5 overflow-auto p-5">
       <div
         className={`${
           cartData.length ? "col-span-9 " : "col-span-12 "
@@ -77,20 +78,20 @@ const BuyerCart = () => {
                   Product
                 </th>
                 <th className="px-4 py-2 text-left border-b text-black">
-                  Book Title
+                  {t("bookTitle")}
                 </th>
                 <th className="px-4 py-2 text-left border-b text-black">
-                  Author
+                  {t("author")}
                 </th>
                 <th className="px-4 py-2 text-left border-b text-black">
-                  Stock Count
+                 {t("stockCount")}
                 </th>
                 <th className="px-4 py-2 text-left border-b text-black">
-                  Price
+                  {t("price")}
                 </th>
                 <td className="px-4 py-2 border-b">Quantity</td>
                 <th className="px-4 py-2 text-left border-b text-black">
-                  Action
+                 {t("action")}
                 </th>
               </tr>
             </thead>

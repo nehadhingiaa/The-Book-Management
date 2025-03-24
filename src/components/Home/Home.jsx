@@ -61,7 +61,7 @@ const Home = () => {
         </div>
       </header>
       <div className="h-full">
-        <BookListing books={books} />
+        <BookListing />
       </div>
       <div>
         <footer className="fixed bottom-0 left-0 right-0 h-[70px] bg-white flex items-center justify-between px-10 shadow-purple-300">
@@ -69,7 +69,7 @@ const Home = () => {
             <span>
               <SiBookstack />
             </span>
-            <span>{t("homePageHeader")}</span>
+            <span>{t("bookFair")}</span>
           </div>
         </footer>
       </div>

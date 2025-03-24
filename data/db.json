@@ -1,0 +1,550 @@
+{
+  "users": [
+    {
+      "id": "be0f",
+      "name": "neha1",
+      "email": "neha1@gmail.com",
+      "user": "buyer"
+    },
+    {
+      "id": "9774",
+      "name": "dimple1",
+      "email": "dimple1@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1001",
+      "name": "alice",
+      "email": "alice@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1002",
+      "name": "bob",
+      "email": "bob@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1003",
+      "name": "charlie",
+      "email": "charlie@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1004",
+      "name": "david",
+      "email": "david@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1005",
+      "name": "eve",
+      "email": "eve@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1006",
+      "name": "charlie",
+      "email": "charlie@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1007",
+      "name": "david",
+      "email": "david@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "1008",
+      "name": "eve",
+      "email": "eve@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "f41f",
+      "name": "tanviNegi",
+      "email": "tanviNegi@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "2144",
+      "name": "tanvi thakur",
+      "email": "tanvithakur@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "f232",
+      "name": "muskaan1",
+      "email": "muskaan@gmail.com",
+      "user": "buyer"
+    },
+    {
+      "id": "459c",
+      "name": "divya sharma",
+      "email": "divyasharma@gmail.com",
+      "user": "buyer"
+    },
+    {
+      "id": "b0bd",
+      "name": "renu shankar",
+      "email": "renushankar@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "df5c",
+      "name": "Tanvi Negi",
+      "email": "tanvinegi@gmail.com",
+      "user": "buyer"
+    },
+    {
+      "id": "9484",
+      "name": "Neha Dhingiaa",
+      "email": "nehadhingiaa@gmail.com",
+      "user": "buyer"
+    },
+    {
+      "id": "6400",
+      "name": "Divya Sharma",
+      "email": "divyaSharma@gmail.com",
+      "user": "seller"
+    },
+    {
+      "id": "8771",
+      "name": "wxdwaec",
+      "email": "cew@gmail.com",
+      "sellerName": "wqdewd",
+      "shopName": "ewqf23qf23qf",
+      "user": "seller"
+    },
+    {
+      "id": "7961",
+      "name": "neha1",
+      "email": "neha1@gmail.com",
+      "sellerName": "neha1",
+      "shopName": "fiction world",
+      "user": "seller"
+    },
+    {
+      "id": "276b",
+      "name": "Sunny Kumar",
+      "email": "sunnykumar@gmail.com",
+      "sellerName": "Sunny kumar",
+      "shopName": "Books World",
+      "user": "seller"
+    }
+  ],
+  "dashboardStats": [
+    {
+      "id": "1",
+      "title": "Total Books",
+      "count": 120,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": "2",
+      "title": "Total Sales",
+      "count": 250,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": "3",
+      "title": "Active Users",
+      "count": 75,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": "4",
+      "title": "New Orders",
+      "count": 30,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": "5",
+      "title": "Pending Deliveries",
+      "count": 15,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": "6",
+      "title": "Completed Orders",
+      "count": 220,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    }
+  ],
+  "books": [
+    {
+      "id": "4",
+      "title": "The Shining",
+      "author": "Stephen King",
+     
+      "stockCount": 29,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://covers.openlibrary.org/b/id/14846156-L.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://covers.openlibrary.org/b/id/14846156-L.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+     
+      "stockCount": 27,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://m.media-amazon.com/images/I/71B4h-dSVzL._SY466_.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 300,
+      "image": "https://images.meesho.com/images/products/83103192/i37kq_1200.jpg"
+    },
+    {
+      "id": "9",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      
+      "stockCount": 10,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://images.meesho.com/images/products/147567498/2lvuz_1200.jpg"
+    },
+    {
+      "id": "10",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://images.meesho.com/images/products/381615230/cdlso_1200.jpg"
+    },
+    {
+      "id": "12",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+     
+      "stockCount": 10,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRd1cILBmHOVh-ZXsh-P68fkSR3ldETlKyUWcF-MzRlhrGwWRAvSYRZxquy-siTXTZlQzd8HbItEeTOIaXYUIM7PUU07fVgGsMy2ErLE3wi"
+    },
+    {
+      "id": "13",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRohlWLpQwEg4zIfn4TyudJQfG5dDIgZyC_2Arb7u1su6H-DKOOYhGS-yMgQ1j8Nq2yi-1gKMuaJ4r92CwIg4DiW-mNdpuGO4J7FcSsXnCR5hyJQom4HjuECg"
+    },
+    {
+      "id": "14",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+     
+      "stockCount": 4,
+      "quantity": 1,
+      "price": 900,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ4OYKP8ZEXC_ATuW770bSrwyrFIYn6Tq8SiruQ1PBmw044xMf-AC28WaF-hohMTDE0pqjOpQSAHp5it0KPNELCZiP9wHHHyhDbH4z8xFUS"
+    },
+    {
+      "id": "15",
+      "title": "The Odyssey",
+      "author": "Homer",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://99bookstores.com/cdn/shop/files/20391a21-7338-4c78-9dee-2e09e4d6c7ef.jpg?v=1699770152&width=1920"
+    },
+    {
+      "id": "16",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+ 
+      "stockCount": 34,
+      "quantity": 1,
+      "price": 450,
+      "image": "https://www.motilalbanarsidass.com/cdn/shop/files/Be_Strong_Fear_Not_By_Swami_Tathagatananda.png?v=1734956422&width=960"
+    },
+    {
+      "id": "17",
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+     
+      "stockCount": 2,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://images.booksense.com/images/235/888/9780062888235.jpg"
+    },
+    {
+      "id": "18",
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 760,
+      "image": "https://images.booksense.com/images/068/338/9780062338068.jpg"
+    },
+    {
+      "id": "21",
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 987,
+      "image": "https://images.booksense.com/images/068/338/9780062338068.jpg"
+    },
+    {
+      "id": "23",
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      
+      "stockCount": 3,
+      "quantity": 1,
+      "price": 896,
+      "image": "https://images.booksense.com/images/068/338/9780062338068.jpg"
+
+    },
+    {
+      "id": "1",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+     
+      "stockCount": 5,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "author": "George Orwell",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://covers.openlibrary.org/b/id/14846156-L.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+     
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 500,
+      "image": "https://m.media-amazon.com/images/I/81qusRbi0TS.jpg"
+    }
+  ],
+  "shops": [
+    {
+      "id": "1",
+      "name": "The Great Gatsby",
+      "sellerName": "F. Scott Fitzgerald",
+      "stockCount": 5,
+      "quantity": 1,
+      "price": 330,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "2",
+      "name": "To Kill a Mockingbird",
+      "sellerName": "Harper Lee",
+      "stockCount": 8,
+      "quantity": 1,
+      "price": 290,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "3",
+      "name": "1984",
+      "sellerName": "George Orwell",
+      "stockCount": 3,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "3",
+      "name": "1984",
+      "sellerName": "George Orwell",
+      "stockCount": 3,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "3",
+      "name": "1984",
+      "sellerName": "George Orwell",
+      "stockCount": 3,
+      "quantity": 1,
+      "price": 240,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "3",
+      "name": "1984",
+      "sellerName": "George Orwell",
+      "stockCount": 3,
+      "quantity": 1,
+      "price": 800,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ekMHCUO_Tgx3xh2NJ9xRQYphWykv9V3FrlJW76x5eLl-Q0P7rf4LrjYv5pfQJi03lvvyZ3w8hBI87Ql_iGxqdP0UzGIX"
+    },
+    {
+      "id": "13",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 400,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRohlWLpQwEg4zIfn4TyudJQfG5dDIgZyC_2Arb7u1su6H-DKOOYhGS-yMgQ1j8Nq2yi-1gKMuaJ4r92CwIg4DiW-mNdpuGO4J7FcSsXnCR5hyJQom4HjuECg"
+    },
+    {
+      "id": "13",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 200,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRohlWLpQwEg4zIfn4TyudJQfG5dDIgZyC_2Arb7u1su6H-DKOOYhGS-yMgQ1j8Nq2yi-1gKMuaJ4r92CwIg4DiW-mNdpuGO4J7FcSsXnCR5hyJQom4HjuECg"
+    },
+    {
+      "id": "14",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+   
+      "stockCount": 4,
+      "quantity": 1,
+      "price": 700,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ4OYKP8ZEXC_ATuW770bSrwyrFIYn6Tq8SiruQ1PBmw044xMf-AC28WaF-hohMTDE0pqjOpQSAHp5it0KPNELCZiP9wHHHyhDbH4z8xFUS"
+    },
+    {
+      "id": "13",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 1100,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRohlWLpQwEg4zIfn4TyudJQfG5dDIgZyC_2Arb7u1su6H-DKOOYhGS-yMgQ1j8Nq2yi-1gKMuaJ4r92CwIg4DiW-mNdpuGO4J7FcSsXnCR5hyJQom4HjuECg"
+    },
+    {
+      "id": "14",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+   
+      "stockCount": 4,
+      "quantity": 1,
+      "price": 2100,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ4OYKP8ZEXC_ATuW770bSrwyrFIYn6Tq8SiruQ1PBmw044xMf-AC28WaF-hohMTDE0pqjOpQSAHp5it0KPNELCZiP9wHHHyhDbH4z8xFUS"
+    },
+    {
+      "id": "13",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      
+      "stockCount": 20,
+      "quantity": 1,
+      "price": 1200,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRohlWLpQwEg4zIfn4TyudJQfG5dDIgZyC_2Arb7u1su6H-DKOOYhGS-yMgQ1j8Nq2yi-1gKMuaJ4r92CwIg4DiW-mNdpuGO4J7FcSsXnCR5hyJQom4HjuECg"
+    },
+    {
+      "id": "14",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+   
+      "stockCount": 4,
+      "quantity": 1,
+      "price": 3400,
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ4OYKP8ZEXC_ATuW770bSrwyrFIYn6Tq8SiruQ1PBmw044xMf-AC28WaF-hohMTDE0pqjOpQSAHp5it0KPNELCZiP9wHHHyhDbH4z8xFUS"
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "id": "4b40",
+      "totalBooks": 1,
+      "totalPrice": 200,
+      "tax": "799",
+      "cartItems": [
+        {
+          "id": "9",
+          "title": "The Catcher in the Rye",
+          "author": "J.D. Salinger",
+          
+          "stockCount": 10,
+          "quantity": 1,
+          "price": 200,
+          "image": "https://images.meesho.com/images/products/147567498/2lvuz_1200.jpg"
+        }
+      ]
+    },
+    {
+      "id": "b95b",
+      "totalBooks": 2,
+      "totalPrice": 200,
+      "tax": "799",
+      "cartItems": [
+        {
+          "id": "11",
+          "title": "The Lord of the Rings",
+          "author": "J.R.R. Tolkien",
+          "description": "A fantasy epic about the battle to destroy a powerful ring.",
+          "stockCount": 19,
+          "quantity": 2,
+          "price": 100,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSnL_bUkM3CJ-xyI-jmjMNqUe9EPguVSPWbvfjhkvEJZGPQYE5_gwuZy1u866FeY5VHJ5j3_BSxAQCh9fvQ2XQdkIH5ZpX9VbTm-HRxTTbQwbZIFeyqovD2"
+        }
+      ]
+    },
+    {
+      "id": "b8e6",
+      "totalBooks": 2,
+      "totalPrice": 400,
+      "tax": "799",
+      "cartItems": [
+        {
+          "id": "9",
+          "title": "The Catcher in the Rye",
+          "author": "J.D. Salinger",
+          
+          "stockCount": 10,
+          "quantity": 1,
+          "price": 200,
+          "image": "https://images.meesho.com/images/products/147567498/2lvuz_1200.jpg"
+        },
+        {
+          "id": "12",
+          "title": "War and Peace",
+          "author": "Leo Tolstoy",
+         
+          "stockCount": 10,
+          "quantity": 1,
+          "price": 200,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRd1cILBmHOVh-ZXsh-P68fkSR3ldETlKyUWcF-MzRlhrGwWRAvSYRZxquy-siTXTZlQzd8HbItEeTOIaXYUIM7PUU07fVgGsMy2ErLE3wi"
+        }
+      ]
+    }
+  ]
+}

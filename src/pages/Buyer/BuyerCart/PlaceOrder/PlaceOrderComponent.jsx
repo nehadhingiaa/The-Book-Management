@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Loader from "../../../../components/Elements/Loader/Loader";
 import Button from "../../../../components/Elements/Button/Button";
-// import ConfirmOrderModal from "../../../../components/OrderModal/OrderModal";
 import { useTranslation } from "react-i18next";
 import usePlaceOrder from "../../../../hooks/PlaceOrder.hooks";
 
@@ -14,20 +13,14 @@ const PlaceOrder = ({
   sellerId,
   sellerName,
 }) => {
-  const {
-    
-    loading,
-    values,
-    handleSubmit,
-    handleChange,
-    isSubmitting,
-  } = usePlaceOrder({
-    subQuantity,
-    subTotal,
-    buyerCartData,
-    sellerId,
-    sellerName,
-  });
+  const { loading, values, handleSubmit, handleChange, isSubmitting } =
+    usePlaceOrder({
+      subQuantity,
+      subTotal,
+      buyerCartData,
+      sellerId,
+      sellerName,
+    });
   const { t } = useTranslation();
 
   return (
@@ -36,7 +29,7 @@ const PlaceOrder = ({
         <Loader loading={loading} />
       ) : (
         <div>
-          {buyerCartData?.length && (
+          {buyerCartData?.length > 0 && (
             <>
               <div className="block m-auto p-10 pt-20">
                 <h1 className="text-center text-4xl font-semibold">
@@ -102,8 +95,6 @@ const PlaceOrder = ({
               </div>
             </>
           )}
-
-          
         </div>
       )}
     </>

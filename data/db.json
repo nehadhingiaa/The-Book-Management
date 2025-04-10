@@ -241,124 +241,24 @@
       "shopName": ""
     },
     {
-      "id": "b6f0",
-      "username": "dfg",
-      "email": "nehadhingiaa@gmail.com",
-      "password": "$2b$10$1SJUZqaP69KWRiv3yydUUeibwRiudEdsZdLnnWBcigPCVmP.IRUeq",
-      "confirmPassword": "Neha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "13a0",
-      "username": "iugf",
+      "id": "dce9",
+      "username": "dewd",
       "email": "shubhamkumar@yopmail.com",
-      "password": "$2b$10$hJ8nOjPRemkryQAEV99fN.fepDBYaVjX8z0isLBbvjHdx22hoEAwm",
+      "password": "$2b$10$v2fmzeolybwzVIy.AIucmeS9nmNPpqhytShXd1L.kWaIYtCt5Ye22",
       "confirmPassword": "Neha@123",
       "user": "buyer",
       "sellerName": "",
       "shopName": ""
     },
     {
-      "id": "15a9",
-      "username": "kjhgfd",
-      "email": "nehadhingiaa@gmail.com",
-      "password": "$2b$10$e3pARQsFpyrN.1UriNwjMO6YsKuE6OcF9QKdL127EBfKMT4eyzEhK",
-      "confirmPassword": "Neha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "1b8e",
-      "username": "dwsd",
-      "email": "carehalosa@yopmail.com",
-      "password": "$2b$10$Qy1mjeltglOTQTVL2RjgAudMWQxVNoHTbIqeclwz7ngAbcJq5nea.",
-      "confirmPassword": "Renu@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "2b0c",
-      "username": "swder",
-      "email": "sunnykumar@yopmail.com",
-      "password": "$2b$10$O4Q9nxZL0f35HDooFq0qluJ3ujzJ.Z9VSQna1ZdAasysRrKFi6FSa",
-      "confirmPassword": "Megha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "3eaa",
-      "username": "shubhamkumaruytr",
-      "email": "nehadhingiaa@yopmail.com",
-      "password": "$2b$10$zYU1kQFcE01M15SE.ByUXeDes.GQzO7YGYgM6SgBZmj/nu4KsNjK.",
-      "confirmPassword": "Renu@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "5db0",
-      "username": "nehadhingiaajhgfde",
-      "email": "sunnykumar@yopmail.com",
-      "password": "$2b$10$fmokzqrdWDD1RGeBgNI6GucAE4eSZOqJKH4Si7xjGpCCI3fTD9HmK",
-      "confirmPassword": "Raja@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "531d",
-      "username": "werft",
-      "email": "sunnykumar@yopmail.com",
-      "password": "$2b$10$Xo03uQzGjmDfEXFU6KHKHOpyZJoRELgFNq2B0QCiKvYnySS1.wCOO",
-      "confirmPassword": "Megha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "cf1f",
-      "username": "iuytr",
-      "email": "nehadhingiaa@yopmail.com",
-      "password": "$2b$10$yGAQMbC2u22UZmZixh7m3eI6j32.IlRtF0.Hzgrapsso6kkLTxXWC",
-      "confirmPassword": "Megha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "30e0",
-      "username": "wert56y",
+      "id": "7de3",
+      "username": "ded3",
       "email": "shubhamkumar@yopmail.com",
-      "password": "$2b$10$r1hCDSsAX3.XQ8Tx5r5sj.cwtnI1oWAGsrF3QUTXIZOXjKT9HnIai",
+      "password": "$2b$10$5eHavGiTEJ0TSNBPXPQdzOHHEGKbIA.AJer.pm2pnMHiKEy6DoEH2",
       "confirmPassword": "Neha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "ca7c",
-      "username": "cfedxwsz",
-      "email": "carehalosa@yopmail.com",
-      "password": "$2b$10$sCkuBEOCldG7eExp06iUrOCOc0j.TF3f8WCBTw7ytJKNDIAd5z7Ea",
-      "confirmPassword": "Neha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
-    },
-    {
-      "id": "e880",
-      "username": "iuytre",
-      "email": "nehadhingiaa@yopmail.com",
-      "password": "$2b$10$vWqV.yqcjJu2Hled.T7RluIlOt0umpxHOQ1SRRNbgyRaZPiL6eMjW",
-      "confirmPassword": "Neha@123",
-      "user": "buyer",
-      "sellerName": "",
-      "shopName": ""
+      "user": "seller",
+      "sellerName": "d32dq23",
+      "shopName": "d32d32d32"
     }
   ],
   "books": [

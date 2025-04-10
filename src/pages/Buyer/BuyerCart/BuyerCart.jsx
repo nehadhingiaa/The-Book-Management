@@ -127,7 +127,7 @@ const BuyerCart = () => {
             )}
           </div>
 
-          {!!buyerCartData && (
+          {buyerCartData.length!==0 && (
             <>
               <div className=" w-full h-full bg-purple-100 border-2 border-purple-400 rounded-md col-span-3  sm:col-span-12  md:col-span-12 lg:col-span-12  xl:col-span-12  2xl:col-span-3 ">
                 <PlaceOrder

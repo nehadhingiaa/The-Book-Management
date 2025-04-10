@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchBooks,
-  searchBooks,
-} from "../../BookListing/BookApi";
+import { fetchBooks, searchBooks } from "../../BookListing/BookApi";
 import { fetchOrder } from "../BuyerCart/Slices/PlaceOrdersSlice";
 import { useNavigate } from "react-router-dom";
 import { setData } from "./OrdersSlice";
 import { toast } from "react-toastify";
 import { setSearchQuery } from "../../BookListing/BookSlice";
+import { debounce } from "lodash";
 
 const useBooksData = () => {
   const dispatch = useDispatch();
@@ -20,7 +18,9 @@ const useBooksData = () => {
   const navigate = useNavigate();
   const { cartData } = useSelector((state) => state.cartData);
   const [search, setSearch] = useState("");
-  const buyerCartData =cartData?.filter((item)=>item.buyerId ===userData?.id)
+  const buyerCartData = cartData?.filter(
+    (item) => item.buyerId === userData?.id
+  );
 
   const userOrders = orders?.filter(
     (order) =>
@@ -31,7 +31,7 @@ const useBooksData = () => {
 
   const updateStockCounts = (sellerBooks, userOrders) => {
     const updatedBooks = sellerBooks.map((book) => ({ ...book }));
-  
+
     userOrders?.forEach((order) => {
       order?.cartItems?.forEach((item) => {
         const bookIndex = updatedBooks.findIndex((book) => book.id === item.id);
@@ -53,14 +53,16 @@ const useBooksData = () => {
 
   const handleBooks = (item) => {
     if (!item && !item?.stockCount) return;
-    const isBookInCart = buyerCartData.some((cartItem) => cartItem.id === item.id);
+    const isBookInCart = buyerCartData.some(
+      (cartItem) => cartItem.id === item.id
+    );
 
     if (isBookInCart) {
       navigate("/buyer-dashboard/cart");
     } else {
       setLoadingBookId(item.id);
       const buyerName = userData.username;
-      const buyerId = userData.id; 
+      const buyerId = userData.id;
       const updatedItem = {
         ...item,
         buyerName,
@@ -85,16 +87,24 @@ const useBooksData = () => {
     }
   }, [dispatch, books?.length, orders?.length]);
 
+  const debouncedSearch = useCallback(
+    debounce((query) => {
+      dispatch(setSearchQuery(query));
+      dispatch(searchBooks(query));
+    }, 300),
+    [dispatch]
+  );
+  
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearch(query);
-    dispatch(setSearchQuery(query));
-    dispatch(searchBooks(query));
+    debouncedSearch(query);
   };
 
   const isBookInCart = (bookId) => {
     return (
-      Array.isArray(buyerCartData) && buyerCartData.some((item) => item.id === bookId)
+      Array.isArray(buyerCartData) &&
+      buyerCartData.some((item) => item.id === bookId)
     );
   };
 

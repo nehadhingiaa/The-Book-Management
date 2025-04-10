@@ -15,8 +15,6 @@ import SellerOrderComponent from "./pages/Seller/SellerOrders/SellerOrderCompone
 import SellerBooks from "./pages/Seller/SellerBooks/SellerBooks";
 import { ToastContainer } from "react-toastify";
 import AllOrdersComponent from "./pages/Seller/SellerOrders/AllOrders/AllOrdersComponent";
-import store, { persistor } from "./redux/store";
-import { clearCart } from "./pages/Buyer/Books/OrdersSlice";
 
 const userData = JSON.parse(localStorage.getItem("user") || "{}");
 const userType = userData?.user;
@@ -63,17 +61,6 @@ const getRoutes = () => {
 const router = createBrowserRouter(getRoutes());
 
 function App() {
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    const prevUser = store.getState().user;
-
-    if (prevUser?.id && prevUser.id !== userData.id) {
-      dispatch(clearCart());
-      persistor.purge();
-    }
-  }, []);
-
   return (
     <div>
       <ToastContainer position="top-right" autoClose={3000} />

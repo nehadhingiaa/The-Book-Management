@@ -18,8 +18,7 @@ const Login = ({ closeModal, setIsModal }) => {
     formik,
   } = useLoginForm({ setIsModal });
 
-  const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
-    formik;
+  const { values, errors, touched, handleChange, handleBlur,handleSubmit} = formik;
 
   return (
     <div className="fixed inset-0 bg-transparent bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-50">
@@ -37,12 +36,12 @@ const Login = ({ closeModal, setIsModal }) => {
             <h1 className="font-extrabold text-4xl mt-3 text-center">
               {isLogin ? t("loginForm") : t("signUp")}
             </h1>
-            {isLogin ? (
-              <>
-                <form
-                  className="mt-4 flex flex-col items-center justify-start w-full max-w-md m-auto"
-                  onSubmit={handleSubmit}
-                >
+            <form
+              className="mt-4 flex flex-col items-center justify-start w-full max-w-md m-auto"
+              onSubmit={handleSubmit}
+            >
+              {isLogin ? (
+                <>
                   <div className="mb-4 w-full">
                     <InputField
                       label={t("username")}
@@ -72,36 +71,9 @@ const Login = ({ closeModal, setIsModal }) => {
                       required={true}
                     />
                   </div>
-
-                  <div className="flex flex-col justify-center items-center gap-3 mt-5">
-                    <Button type="submit" className="min-w-[275px] h-15">
-                      {isLogin ? t("login") : t("signUp")}
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={closeModal}
-                      className="min-w-[275px] h-15 !bg-transparent border-2 border-pink-300  !text-pink-600 "
-                    >
-                      {t("cancel")}
-                    </Button>
-                  </div>
-                  <div className="mt-4">
-                    <span>
-                      {t("dontHaveAccount")}?{" "}
-                      <span className="text-pink-500" onClick={toggleLoginMode}>
-                        {t("signUp")}
-                      </span>
-                    </span>
-                  </div>
-                </form>
-              </>
-            ) : (
-              //registration form
-              <>
-                <form
-                  className="mt-4 flex flex-col items-start justify-start w-full max-w-md mx-auto " // Ensures left alignment
-                  onSubmit={handleSubmit}
-                >
+                </>
+              ) : (
+                <>
                   <div className="mb-4 w-full">
                     <InputField
                       label={t("username")}
@@ -229,36 +201,32 @@ const Login = ({ closeModal, setIsModal }) => {
                       </div>
                     </>
                   )}
-
-                  <div className="flex flex-col gap-3 items-center w-full pt-2">
-                    <Button type="submit" className="w-full">
-                      {isLogin ? t("login") : t("signUp")}
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={closeModal}
-                      className="w-full !bg-transparent border-2 border-pink-300 !text-pink-600"
-                    >
-                      {t("cancel")}
-                    </Button>
-                  </div>
-
-                  {/* Switch login/signup */}
-                  <div className="text-center pt-4">
-                    <span>
-                      {isLogin ? t("dontHaveAccount") : t("alreadyHaveAccount")}
-                      ?{" "}
-                      <span
-                        className="text-pink-500 cursor-pointer"
-                        onClick={toggleLoginMode}
-                      >
-                        {isLogin ? t("signUp") : t("login")}
-                      </span>
-                    </span>
-                  </div>
-                </form>
-              </>
-            )}
+                </>
+              )}
+              <div className="flex flex-col gap-3 items-center w-full pt-2">
+                <Button type="submit" className="w-full">
+                  {isLogin ? t("login") : t("signUp")}
+                </Button>
+                <Button
+                  type="button"
+                  onClick={closeModal}
+                  className="w-full !bg-transparent border-2 border-pink-300 !text-pink-600"
+                >
+                  {t("cancel")}
+                </Button>
+              </div>
+              <div className="text-center pt-4">
+                <span>
+                  {isLogin ? t("dontHaveAccount") : t("alreadyHaveAccount")}?{" "}
+                  <span
+                    className="text-pink-500 cursor-pointer"
+                    onClick={toggleLoginMode}
+                  >
+                    {isLogin ? t("signUp") : t("login")}
+                  </span>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
       </div>

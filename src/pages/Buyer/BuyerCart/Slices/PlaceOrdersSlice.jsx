@@ -1,16 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const API_URL = "http://localhost:8000/orders";
 
 export const placeOrder = createAsyncThunk(
   "cart/updateCartData",
   async (orderItems, { rejectWithValue }) => {
+    debugger
     try {
       const response = await axios.post(API_URL, orderItems);
-      console.log(response.data, "placed order ");
-      toast.success("Order has been placed successfully");
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

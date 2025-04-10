@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "../../pages/Login/Login";
 import LanguageSelector from "../Elements/LanguageSelector/LanguageSelector";
 import Button from "../Elements/Button/Button";
@@ -11,6 +11,9 @@ const Navbar = () => {
   const showModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+  useEffect(()=>{
+
+  },[])
   const closeModal = () => {
     setIsModalOpen(false);
   };

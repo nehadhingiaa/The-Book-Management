@@ -4,8 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { createBooks, updateBooks } from "../pages/BookListing/BookApi";
 
-
-export const useAddBookForm = ({ bookId, bookQuantities, setSelectedBookId, closeModal, validationSchema }) => {
+export const useAddBookForm = ({
+  bookId,
+  bookQuantities,
+  setSelectedBookId,
+  closeModal,
+  validationSchema,
+}) => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("user"));
   const { books } = useSelector((state) => state.books);
@@ -59,6 +64,7 @@ export const useAddBookForm = ({ bookId, bookQuantities, setSelectedBookId, clos
     touched,
     errors,
     resetForm,
+    isSubmitting
   } = useFormik({
     enableReinitialize: true,
     initialValues,
@@ -68,12 +74,15 @@ export const useAddBookForm = ({ bookId, bookQuantities, setSelectedBookId, clos
         try {
           const existingBook = books.find((book) => book.id === bookId);
           dispatch(updateBooks({ ...existingBook, ...values }));
+          closeModal()
         } catch (error) {
           console.log(error);
         }
       } else {
+        debugger
         try {
           await dispatch(createBooks(values));
+          closeModal();
           Swal.fire({
             title: "Book Has Been Added Successfully",
             icon: "success",
@@ -124,5 +133,6 @@ export const useAddBookForm = ({ bookId, bookQuantities, setSelectedBookId, clos
     handleFileChange,
     handleClose,
     preview,
+    isSubmitting
   };
 };

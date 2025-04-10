@@ -8,6 +8,8 @@ const API_URL = "http://localhost:8000/users";
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData, { rejectWithValue }) => {
+    console.log("register action");
+
     try {
       const existingUser = await axios.get(
         `${API_URL}?username=${userData.username}`
@@ -23,10 +25,9 @@ export const registerUser = createAsyncThunk(
 
       const response = await axios.post(API_URL, {
         ...userData,
-        password: hashedPassword, // Store the hashed password
+        password: hashedPassword,
       });
 
-      toast.success("Registration successful!");
       return response.data;
     } catch (error) {
       toast.error("Failed to register user!");

@@ -21,13 +21,15 @@ const SellerBooks = () => {
     sellerBooks,
     loading,
     bookQuantities,
+    isSubmitting,
     setSelectedBookId,
   } = useSellerBooks();
 
+
   return (
     <>
-      {loading ? (
-        <Loader />
+      {isSubmitting ? (
+        <Loader loading={loading}/>
       ) : (
         <div className="min-h-screen p-5 bg-purple-50">
           <h1 className="text-5xl font-semibold mt-5 mb-5">{t("books")}</h1>
@@ -77,9 +79,11 @@ const SellerBooks = () => {
                 </tr>
               ) : (
                 sellerBooks.map((book) => {
+        
                   const macthedQuantity = bookQuantities?.find(
                     (item) => item.id === book.id
                   );
+                 
 
                   return (
                     <tr key={book.id} className="border-b border-gray-300">
@@ -93,7 +97,7 @@ const SellerBooks = () => {
                       <td className="px-4 py-2">{book?.title}</td>
                       <td className="px-4 py-2">{book?.author}</td>
                       <td className="px-4 py-2">
-                        {macthedQuantity?.id === book?.id
+                        {book?.id && macthedQuantity?.id === book?.id
                           ? Math.max(
                               0,
                               book.stockCount - macthedQuantity.quantity

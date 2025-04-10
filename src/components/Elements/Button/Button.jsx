@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx"; // Install with `npm install clsx` or `yarn add clsx`
 
-const Button = ({ children, onClick, className = "", disabled = false }) => {
+const Button = ({ children, onClick, className = "", disabled }) => {
     return (
         <button
             onClick={onClick}

@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { loginUser, registerUser } from "../pages/Login/LoginApi";
 import validationSchemas from "../pages/Login/LognSchema";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const loginInitialValues = {
   username: "",
   password: "",
@@ -23,6 +24,7 @@ const registerInitialValues = {
 };
 
 const useLoginForm = ({ setIsModal }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
@@ -42,31 +44,34 @@ const useLoginForm = ({ setIsModal }) => {
         return;
       }
 
-      if (isLogin) {
+      if (isLogin && values) {
         try {
           await dispatch(
             loginUser({ username: values.username, password: values.password })
           ).unwrap();
-          if (userData.user === "buyer") {
+
+          toast.success(t("loginSuccessfully"));
+          if (userData?.user === "buyer") {
             navigate("/buyer-dashboard");
-          } else if (userData.user === "seller") {
+          } else if (userData?.user === "seller") {
             navigate("/seller-dashboard");
           } else {
             navigate("/");
           }
         } catch (error) {
+     
           toast.error(error?.message || "Login failed.");
         }
       } else {
         try {
           await dispatch(registerUser(values)).unwrap();
-          toast.success("Registered successfully!");
+          toast.success(t("registerSuccessfully"));
           setTimeout(() => {
             setIsLogin?.((prev) => !prev);
             setIsModal?.((prev) => !prev);
           }, 300);
         } catch {
-          toast.error("Registration failed.");
+          toast.error(t("register failed"));
         }
       }
     },

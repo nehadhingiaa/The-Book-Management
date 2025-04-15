@@ -1,93 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProfile, updateProfile, uploadProfile } from "./ProfileSlice";
-import { useFormik } from "formik";
+import React from "react";
 import InputField from "../Elements/InputField/Inputfield";
-import { useTranslation } from "react-i18next";
 import bookbanner from "../../assets/images/bookbanner.jpg";
-import defaultImg from "../../assets/images/defaultImg.jpg"
+import defaultImg from "../../assets/images/defaultImg.jpg";
+import useProfileForm from "../../hooks/Profile.hooks";
 
 const Profile = ({ closeModal }) => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const userData = JSON.parse(localStorage.getItem("user"));
-
-  const { profile } = useSelector((state) => state.profile);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [initialValues, setInitialValues] = useState({ image: "" });
-
-
-
-  useEffect(() => {
-    if (Array.isArray(profile) && userData?.id) {
-      const foundProfile = profile.find((u) => u.id === userData.id);
-
-      if (foundProfile) {
-        setPreviewImage(foundProfile.image); 
-      }
-    }
-  }, [profile, previewImage, userData?.id]);
-  console.log(previewImage, "previewImage");
-
-  useEffect(() => {
-    dispatch(fetchProfile());
-  }, [dispatch]);
-
-
-  useEffect(() => {
-    if (profile) {
-      console.log("Profile data updated:", profile);
-      4;
-      setPreviewImage(profile.image || "");
-    }
-  }, [profile]);
-
-  useEffect(() => {
-    if (profile?.[0]) {
-      setInitialValues({
-        id: userData?.id,
-        image: profile?.[0]?.image,
-        user: userData?.user,
-      });
-    } else {
-      resetForm();
-    }
-  }, [profile?.[0]]);
-
-  // Initialize Formik
-  const { values, handleChange, handleSubmit, resetForm, setFieldValue } =
-    useFormik({
-      enableReinitialize: true,
-      initialValues,
-      onSubmit: (values) => {
-        const profileData = profile?.find((u) => u.id === userData?.id);
-        if (!userData?.id) {
-          alert("User ID is missing!");
-          return;
-        }
-
-        if (!profileData) {
-          dispatch(uploadProfile({ id: userData?.id, image: values?.image }));
-        } else {
-          dispatch(updateProfile({ id: userData?.id, image: values?.image }));
-        }
-
-        closeModal();
-      },
-    });
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const imageBase64 = reader.result;
-        setPreviewImage(imageBase64);
-        setFieldValue("image", imageBase64);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const {
+    t,
+    handleChange,
+    handleSubmit,
+    handleFileChange,
+    previewImage,
+    values,
+  } = useProfileForm(closeModal);
   return (
     <div className="fixed top-16 right-24 bg-white shadow-lg shadow-purple-400 rounded-4xl w-[350px] h-[400px] z-[9999] transition-transform transform animate-slideIn">
       <div className="bg-purple-300 h-36 rounded-t-lg w-full ">
@@ -144,7 +69,7 @@ const Profile = ({ closeModal }) => {
             type="text"
             id="username"
             name="username"
-            value={userData.username}
+            value={values?.username}
             onChange={handleChange}
             placeholder="username"
             className="  w-80 text-center border-none rounded-md  focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -153,8 +78,9 @@ const Profile = ({ closeModal }) => {
             type="text"
             id="email"
             name="email"
-            value={userData.email}
+            value={values?.email}
             onChange={handleChange}
+            placeholder="email"
             className="  w-80 text-center border-none rounded-md text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>

@@ -6,7 +6,7 @@ import buyerCartReducer from "../pages/Buyer/BuyerCart/Slices/BuyerCartSlices";
 import PlaceOrderReducer from "../pages/Buyer/BuyerCart/Slices/PlaceOrdersSlice";
 import homeBooksReducer from "../pages/BookListing/BookSliceForHome";
 import profileReducer from "../components/Profile/ProfileSlice";
-import { persistStore, persistReducer } from "redux-persist";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import queryParamReducer from "../pages/Buyer/Shops/ShopsSlice";
 
@@ -47,6 +47,12 @@ export const store = configureStore({
     profile: profileReducer,
     query: persistedQueryDataReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

@@ -64,7 +64,7 @@ export const useAddBookForm = ({
     touched,
     errors,
     resetForm,
-    isSubmitting
+    isSubmitting,
   } = useFormik({
     enableReinitialize: true,
     initialValues,
@@ -74,12 +74,11 @@ export const useAddBookForm = ({
         try {
           const existingBook = books.find((book) => book.id === bookId);
           dispatch(updateBooks({ ...existingBook, ...values }));
-          closeModal()
+          closeModal();
         } catch (error) {
           console.log(error);
         }
       } else {
-        debugger
         try {
           await dispatch(createBooks(values));
           closeModal();
@@ -133,6 +132,6 @@ export const useAddBookForm = ({
     handleFileChange,
     handleClose,
     preview,
-    isSubmitting
+    isSubmitting,
   };
 };

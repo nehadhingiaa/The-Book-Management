@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LanguageSelector from "../Elements/LanguageSelector/LanguageSelector";
 import Button from "../Elements/Button/Button";
 import { useTranslation } from "react-i18next";
-import defaultImg from "../../assets/images/defaultImg.jpg"
+import defaultImg from "../../assets/images/defaultImg.jpg";
+import LogoutModal from "../Elements/Logout";
+import { useDispatch } from "react-redux";
+import { logout } from "../../pages/Login/authSlice";
+import { toast } from "react-toastify";
 
 const DashboardHeader = ({
   isSidebarOpen,
@@ -13,13 +17,33 @@ const DashboardHeader = ({
   username,
   profileImg,
   handleShow,
-  handleLogout,
   showCart = false,
   cartCount = 0,
 }) => {
   const { t } = useTranslation();
   const userData = JSON.parse(localStorage.getItem("user"));
+  const [loader, setLoader] = useState(false);
   const user = userData?.user === "seller" ? "seller" : "buyer";
+  const [isLogout, setIsLogout] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleOpen = () => {
+    setIsLogout(true);
+  };
+  const handleClose = () => {
+    setIsLogout(false);
+  };
+  const handleLogout = () => {
+    setLoader(true);
+    setTimeout(() => {
+      dispatch(logout());
+      toast.success(t("youHaveBeenLogoutSuccessfully!"));
+      setLoader(false);
+      setIsLogout(false);
+      navigate("/");
+    }, 1000);
+  };
 
   return (
     <header className="fixed flex justify-between items-center top-0 left-0 md:left-[250px] right-0 bg-gradient-to-r from-pink-100 via-purple-200 to-purple-100 h-[60px] p-5 shadow-md z-40">
@@ -69,7 +93,15 @@ const DashboardHeader = ({
           )}
         </div>
 
-        <Button onClick={handleLogout}>{t("logout")} </Button>
+        <Button onClick={handleOpen}>{t("logout")} </Button>
+        {isLogout && (
+          <LogoutModal
+            handleClose={handleClose}
+            handleLogout={handleLogout}
+            loader={loader}
+            t={t}
+          />
+        )}
       </div>
     </header>
   );

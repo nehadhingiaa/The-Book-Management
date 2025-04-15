@@ -53,6 +53,7 @@ export const fetchUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ username, password }, { rejectWithValue }) => {
+    
     try {
       const response = await axios.get(`${API_URL}?username=${username}`);
 
@@ -71,7 +72,6 @@ export const loginUser = createAsyncThunk(
         return rejectWithValue("Invalid password!");
       }
 
-      toast.success("Login Successfully!");
 
       return user;
     } catch (error) {

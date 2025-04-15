@@ -168,7 +168,7 @@ const AddBooksComponent = ({
                           <Button
                             type="button"
                             onClick={handleClose}
-                            className=" "
+                            className="!bg-transparent"
                           >
                             {t("cancel")}
                           </Button>

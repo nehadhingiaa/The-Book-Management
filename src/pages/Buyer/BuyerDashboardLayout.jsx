@@ -2,8 +2,7 @@ import React from "react";
 import { FaBook, FaBars } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { IoCart, IoStorefrontSharp } from "react-icons/io5";
-import LanguageSelector from "../../components/Elements/LanguageSelector/LanguageSelector";
+import { IoStorefrontSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import Profile from "../../components/Profile/Profile";
 import Button from "../../components/Elements/Button/Button";
@@ -19,9 +18,9 @@ const BuyerDashboardLayout = () => {
     isOpen,
     handleShow,
     handleClose,
+    isLogout,
     cartCount,
     profileImg,
-    handleLogout,
     user,
   } = useBuyerLayout();
 
@@ -116,9 +115,9 @@ const BuyerDashboardLayout = () => {
           username={user?.username}
           profileImg={profileImg}
           handleShow={handleShow}
-          handleLogout={handleLogout}
           showCart={true}
           cartCount={cartCount}
+          isLogout={isLogout}
         />
 
         <main className="flex-1 w-full mt-16 md:pl-[250px] p-4 pb-[70px] overflow-y-auto">

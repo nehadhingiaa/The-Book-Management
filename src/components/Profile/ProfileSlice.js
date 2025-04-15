@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const API_URL = "http://localhost:8000/profile";
 
@@ -9,7 +9,7 @@ export const uploadProfile = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post(API_URL, data);
-      toast.success("Profile has been updated");
+      toast.success("Profile has been uploaded");
       return response.data;
     } catch (error) {
       toast.error(error.response?.data || "Something went wrong");
@@ -20,9 +20,9 @@ export const uploadProfile = createAsyncThunk(
 
 export const updateProfile = createAsyncThunk(
   "profile/updateProfile",
-  async ({ id, image }, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`${API_URL}/${id}`, { image });
+      const response = await axios.put(`${API_URL}/${data.id}`, data);
       toast.success("Profile has been updated");
       return response.data;
     } catch (error) {
@@ -50,7 +50,7 @@ export const deleteProfile = createAsyncThunk(
 const profileSlice = createSlice({
   name: "profile",
   initialState: {
-    profile: null,
+    profile: [],
     loading: false,
     error: null,
   },
@@ -79,7 +79,7 @@ const profileSlice = createSlice({
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.profile = { ...state.profile, image: action.payload.image }; // Only update the image
+        state.profile = { ...state.profile, ...action.payload };
       })
       .addCase(updateProfile.rejected, (state, action) => {
         state.loading = false;
@@ -91,7 +91,7 @@ const profileSlice = createSlice({
       })
       .addCase(uploadProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.profile = action.payload; // Only update the image
+        state.profile = action.payload;
       })
       .addCase(uploadProfile.rejected, (state, action) => {
         state.loading = false;

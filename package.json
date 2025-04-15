@@ -40,7 +40,6 @@
     "react-toastify": "^11.0.5",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.1.16",
-    "sweetalert2": "^11.6.13",
     "yup": "^1.6.1"
   },
   "devDependencies": {

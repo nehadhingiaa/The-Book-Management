@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteBook,
-  fetchBooks,
-  searchBooks,
-} from "../pages/BookListing/BookApi";
+import { fetchBooks, searchBooks } from "../pages/BookListing/BookApi";
 import { fetchOrder } from "../pages/Buyer/BuyerCart/Slices/PlaceOrdersSlice";
-import { showDeleteConfirmation } from "../components/Elements/SweetAlert/SweetAlertForDelete";
-
 import { setSearchQuery } from "../pages/BookListing/BookSlice";
+import { toast } from "react-toastify";
 
 const useSellerBooks = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const [search, setSearch] = useState("");
   const [debounceTimeout, setDebounceTimeout] = useState(null);
   const [selectedBookId, setSelectedBookId] = useState(null);
@@ -39,13 +35,12 @@ const useSellerBooks = () => {
     setIsOpen(true);
     setSelectedBookId(id);
   };
+  const handleClose = () => {
+    setIsDelete(false);
+  };
 
-  const handleDelete = (id) => {
-    showDeleteConfirmation(
-      "Are you sure?",
-      "You want to delete? You will not be able to revert this.",
-      () => dispatch(deleteBook(id))
-    );
+  const handleOpen = () => {
+    setIsDelete(true);
   };
 
   const handleSearchChange = (e) => {
@@ -79,7 +74,7 @@ const useSellerBooks = () => {
     handleShowModal,
     closeModal,
     handleUpdate,
-    handleDelete,
+    handleOpen,
     handleSearchChange,
     search,
     selectedBookId,
@@ -87,6 +82,8 @@ const useSellerBooks = () => {
     loading,
     bookQuantities,
     setSelectedBookId,
+    handleClose,
+    isDelete,
   };
 };
 

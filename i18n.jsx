@@ -89,6 +89,8 @@ i18n
           noOrders: "No Orders",
           loginSuccessfully: "Login Successfully!",
           registerSuccessfully: "Register Successfully !",
+          youWantToDelete: "You want to delete!",
+          delete:"Delete",
         },
       },
       fr: {
@@ -162,6 +164,8 @@ i18n
           noOrders: "Aucune commande",
           loginSuccessfully: "Connexion réussie!",
           registerSuccessfully: "Inscrivez-vous avec succès!!",
+          youWantToDelete: "Vous voulez supprimer !",
+          delete:"Supprimer",
         },
       },
       hi: {
@@ -236,6 +240,8 @@ i18n
           noOrders: "कोई आदेश नहीं",
           loginSuccessfully: "सफलतापूर्वक लॉगिन करें!",
           registerSuccessfully: "सफलतापूर्वक पंजीकरण करें",
+          youWantToDelete: "आप हटाना चाहते हैं!",
+          delete:"मिटाना",
         },
       },
     },

@@ -6,10 +6,10 @@ import LanguageSelector from "../Elements/LanguageSelector/LanguageSelector";
 import Button from "../Elements/Button/Button";
 import { useTranslation } from "react-i18next";
 import defaultImg from "../../assets/images/defaultImg.jpg";
-import LogoutModal from "../Elements/Logout";
 import { useDispatch } from "react-redux";
 import { logout } from "../../pages/Login/authSlice";
 import { toast } from "react-toastify";
+import LogoutModal from "../../modals/Logout";
 
 const DashboardHeader = ({
   isSidebarOpen,

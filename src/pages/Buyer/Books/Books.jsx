@@ -6,10 +6,10 @@ import { IoIosStarHalf } from "react-icons/io";
 import Button from "../../../components/Elements/Button/Button";
 import { useTranslation } from "react-i18next";
 import SearchFilter from "../../../components/Elements/SearchFilter/SearchFilter";
-import Loader from "../../../components/Loader/Loader";
 import useBooksData from "./BooksHooks";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Loader from "../../../components/Elements/Loader/Loader";
 
 const Books = () => {
   const {

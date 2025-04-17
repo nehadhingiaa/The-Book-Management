@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { createBooks, updateBooks } from "../pages/BookListing/BookApi";
+import { toast } from "react-toastify";
 
 export const useAddBookForm = ({
   bookId,
@@ -75,6 +75,7 @@ export const useAddBookForm = ({
           const existingBook = books.find((book) => book.id === bookId);
           dispatch(updateBooks({ ...existingBook, ...values }));
           closeModal();
+          toast.success("Book has been updated successfully")
         } catch (error) {
           console.log(error);
         }
@@ -82,21 +83,9 @@ export const useAddBookForm = ({
         try {
           await dispatch(createBooks(values));
           closeModal();
-          Swal.fire({
-            title: "Book Has Been Added Successfully",
-            icon: "success",
-            confirmButtonText: "OK",
-            timerProgressBar: true,
-            willClose: () => console.log("Book added and alert closed"),
-          });
+          toast.success("Book has been created successfully");
         } catch {
-          Swal.fire({
-            title: "Please check, something went wrong",
-            icon: "error",
-            confirmButtonText: "OK",
-            timerProgressBar: true,
-            willClose: () => console.log("Error alert closed"),
-          });
+          toast.error("something went wrong");
         }
       }
     },

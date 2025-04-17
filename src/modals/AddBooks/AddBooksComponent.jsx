@@ -5,7 +5,6 @@ import {
   DialogBackdrop,
   DialogPanel,
   DialogTitle,
-  TransitionChild,
 } from "@headlessui/react";
 import { useAddBookForm } from "../../hooks/AddBooks.hooks";
 import validationSchema from "./AddBooksSchema";
@@ -168,7 +167,7 @@ const AddBooksComponent = ({
                           <Button
                             type="button"
                             onClick={handleClose}
-                            className="!bg-transparent"
+                            className="!bg-transparent !border !border-pink-500 !text-pink-500"
                           >
                             {t("cancel")}
                           </Button>

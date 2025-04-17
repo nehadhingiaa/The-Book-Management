@@ -1,7 +1,6 @@
 import React from "react";
-
-import Button from "../Elements/Button/Button";
-import Loader from "../Elements/Loader/Loader";
+import Button from "../components/Elements/Button/Button";
+import Loader from "../components/Elements/Loader/Loader";
 
 const LogoutModal = ({ handleClose, handleLogout, loader, t }) => {
   return (
@@ -16,12 +15,10 @@ const LogoutModal = ({ handleClose, handleLogout, loader, t }) => {
               {t("youWantToLogout")}!{" "}
             </p>
             <div className="flex gap-5 justify-center mt-5">
-              <Button onClick={handleLogout} >
-                {t("logout")}
-              </Button>
+              <Button onClick={handleLogout}>{t("logout")}</Button>
               <Button onClick={handleClose}>{t("cancel")}</Button>
             </div>
-          </div> 
+          </div>
         )}
       </div>
     </>
